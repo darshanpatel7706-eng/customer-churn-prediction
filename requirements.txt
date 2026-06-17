@@ -1,9 +1,12 @@
 pandas
 numpy
-scikit-learn
+scikit-learn==1.8.0
 matplotlib
 seaborn
 streamlit
 joblib
 imbalanced-learn
 shap
+fastapi
+uvicorn
+pydantic
