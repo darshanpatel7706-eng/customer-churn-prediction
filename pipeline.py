@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
@@ -42,7 +42,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 pipeline = ImbPipeline([
     ('smote', SMOTE(random_state=42)),
     ('scaler', StandardScaler()),
-    ('model', RandomForestClassifier(n_estimators=100, random_state=42))
+    ('model', XGBClassifier(n_estimators=100, random_state=42, eval_metric='logloss'))
 ])
 
 # Train karo
